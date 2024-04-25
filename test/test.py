@@ -43,13 +43,13 @@ async def get_fib_n(dut, n):
     await ClockCycles(dut.clk, 1)
     dut.uio_in.value = 0
 
-    # Wait for one clock cycle, then check the output
-    await ClockCycles(dut.clk, 1)
-    busy_val = ~~(dut.uio_out.value & 0x02)
-    dut._log.info(f"busy: {busy_val}")
+    busy_val = True
 
-    if busy_val:
-        await FallingEdge(dut.uio_out)
+    while busy_val:
+        # Wait for one clock cycle, then check the output
+        await ClockCycles(dut.clk, 1)
+        busy_val = (dut.uio_out.value & 0x02) == 0
+        dut._log.info(f"busy: {busy_val}")
 
     return dut.uo_out.value
 
