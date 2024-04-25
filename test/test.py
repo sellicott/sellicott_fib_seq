@@ -42,8 +42,10 @@ async def get_fib_n(dut, n):
     # Wait for one clock cycle, then clear the strobe pin
     await ClockCycles(dut.clk, 1)
     dut.uio_in.value = 0
+    busy_val = ~~(dut.uio_out.value & 0x02)
 
-    await FallingEdge(dut.uio_out)
+    if busy_val:
+        await FallingEdge(dut.uio_out)
 
     return dut.uo_out.value
 
