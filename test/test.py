@@ -29,7 +29,7 @@ async def test_project(dut):
 
     for i in range(0, 10):
         dut._log.info(f"Test n={i}")
-        fib_n = await get_fib_n(dut, i)
+        fib_n = int(await get_fib_n(dut, i))
         calc_fib = calc_fib_n(i)
         dut._log.info(f"hw fib: {fib_n}, sw fib: {calc_fib}")
         assert fib_n == calc_fib
@@ -42,7 +42,11 @@ async def get_fib_n(dut, n):
     # Wait for one clock cycle, then clear the strobe pin
     await ClockCycles(dut.clk, 1)
     dut.uio_in.value = 0
+
+    # Wait for one clock cycle, then check the output
+    await ClockCycles(dut.clk, 1)
     busy_val = ~~(dut.uio_out.value & 0x02)
+    dut._log.info(f"busy: {busy_val}")
 
     if busy_val:
         await FallingEdge(dut.uio_out)
