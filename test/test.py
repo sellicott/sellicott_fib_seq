@@ -26,7 +26,6 @@ async def test_project(dut):
 
     dut._log.info("Test project behavior")
 
-
     for i in range(0, 10):
         dut._log.info(f"Test n={i}")
         fib_n = int(await get_fib_n(dut, i))
@@ -59,7 +58,7 @@ def calc_fib_n(n):
     if n == 0:
         return a
 
-    for i in range(2, n):
+    for _ in range(1, n):
         c = a + b
         a = b
         b = c
