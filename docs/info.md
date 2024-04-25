@@ -12,3 +12,5 @@ You can also include images in this folder and reference them in the markdown. E
 The project takes in the index of Fibonacci number to generate (`n=0` -> 1, `n=1` -> 1,...).
 Where `n` is an 8-bit unsigned integer on the `n[7:0]` pins. To start generating the sequence `start_stb` should be asserted for one clock cycle.
 While the module is working, the `busy` signal will be asserted. After the `busy` signal falls to `0`, the Nth Fibonacci number is available on `fib[7:0]` pins
+
+![gds_render](gds_render.png)
