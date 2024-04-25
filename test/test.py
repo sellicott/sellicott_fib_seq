@@ -43,9 +43,9 @@ async def get_fib_n(dut, n):
     await ClockCycles(dut.clk, 1)
     dut.uio_in.value = 0
 
-    await FallingEdge(dut.busy)
+    await FallingEdge(dut.uio_out)
 
-    return dut.uo_out
+    return dut.uo_out.value
 
 def calc_fib_n(n):
     a = 0
