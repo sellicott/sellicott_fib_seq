@@ -1,39 +1,44 @@
 [*]
 [*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
-[*] Mon Nov 20 16:00:28 2023
+[*] Sat Apr 27 17:00:22 2024
 [*]
-[dumpfile] "/home/uri/p/tt-new-template-proto/test/tb.vcd"
-[dumpfile_mtime] "Mon Nov 20 15:58:34 2023"
-[dumpfile_size] 1110
-[savefile] "/home/uri/p/tt-new-template-proto/test/tb.gtkw"
+[dumpfile] "C:\Users\ellicott.4\OneDrive - The Ohio State University\Other Meetings\Columbus SSCS\Tiny Tapeout\sellicott_fib_seq\test\tb.vcd"
+[dumpfile_mtime] "Sat Apr 27 16:53:32 2024"
+[dumpfile_size] 7872
+[savefile] "C:\Users\ellicott.4\OneDrive - The Ohio State University\Other Meetings\Columbus SSCS\Tiny Tapeout\sellicott_fib_seq\test\tb.gtkw"
 [timestart] 0
-[size] 1376 600
+[size] 1423 600
 [pos] -1 -1
-*-24.534533 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-9.011801 480 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tb.
-[sst_width] 297
-[signals_width] 230
+[treeopen] tb.user_project.
+[sst_width] 246
+[signals_width] 213
 [sst_expanded] 1
-[sst_vpaned_height] 158
+[sst_vpaned_height] 244
+@200
+-Global Signals
 @28
-tb.user_project.ena
-@29
-tb.user_project.clk
+tb.clk
+tb.rst_n
+@200
+-Control Signals
 @28
-tb.user_project.rst_n
+tb.user_project.fib_inst.i_stb
+[color] 2
+tb.user_project.fib_inst.o_busy
 @200
--Inputs
-@22
-tb.user_project.ui_in[7:0]
+-Fibonacci Sequence IO
+@24
+tb.user_project.fib_inst.i_n[7:0]
+@100025
+[color] 2
+tb.user_project.fib_inst.o_fib[7:0]
 @200
--Bidirectional Pins
-@22
-tb.user_project.uio_in[7:0]
-tb.user_project.uio_oe[7:0]
-tb.user_project.uio_out[7:0]
-@200
--Output Pins
-@22
-tb.user_project.uo_out[7:0]
+-Internal State
+@24
+tb.user_project.fib_inst.iteration[7:0]
+tb.user_project.fib_inst.prev[7:0]
+tb.user_project.fib_inst.current[7:0]
 [pattern_trace] 1
 [pattern_trace] 0
