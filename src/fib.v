@@ -40,7 +40,7 @@ assign o_busy = (iteration != RESET);
 assign o_fib  = current;
 
 always @(posedge i_clk) begin
-    if (i_reset || (!o_busy && i_stb)) begin
+    if (!o_busy && i_stb) begin
         iteration <= i_n;
         prev    [WIDTH-1:0] <= 1;
         current [WIDTH-1:0] <= 0;
