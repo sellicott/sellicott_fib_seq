@@ -2,6 +2,9 @@
 .idea
 .vscode
 *.vcd
+*.vvp
+*.dot
+.python-version
 runs
 tt_submission
 src/user_config.tcl
