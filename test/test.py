@@ -28,9 +28,10 @@ async def test_project(dut):
 
     for i in range(0, 10):
         dut._log.info(f"Test n={i}")
-        fib_n = int(await get_fib_n(dut, i))
+        fib_n = await get_fib_n(dut, i)
+        fib_n_int = int(fib_n)
         calc_fib = calc_fib_n(i)
-        dut._log.info(f"hw fib: {fib_n}, sw fib: {calc_fib}")
+        dut._log.info(f"hw fib: {fib_n_int}, sw fib: {calc_fib}")
         assert fib_n == calc_fib
 
 async def get_fib_n(dut, n):
@@ -47,7 +48,8 @@ async def get_fib_n(dut, n):
     while busy_val:
         # Wait for one clock cycle, then check the output
         await ClockCycles(dut.clk, 1)
-        busy_val = (dut.uio_out.value & 0x02) != 0
+        out_val = int(dut.uio_out.value)
+        busy_val = (out_val & 0x02) != 0
 
     return dut.uo_out.value
 
