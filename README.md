@@ -56,7 +56,7 @@ type, then extract the file to a location of your choosing.
 > On Windows, make sure to extract the binaries to a path without spaces. Some of the tools are picky about this.
 > I recommend `C:\oss-cad-suite`
 
-3) Startup the CAD Tools: Open up a terminal window (on Windows this is "Command Prompt") and activate
+3) Startup the CAD Tools Environment: Open up a terminal window (on Windows this is "Command Prompt") and activate
 the OSS-CAD-Suite environment by calling the activate script for your OS. For Linux/Mac this will be:
 ```bash
 source <extracted_location>/oss-cad-suite/environment
